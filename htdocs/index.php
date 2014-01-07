@@ -8,15 +8,26 @@
 // Version: 0.1                 //
 ////////////////////////////////*/
 
+$debug = true;
+
+// DEBUG
+if ( $debug == true ) {
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+}
+    
 // set important variables
 $main   = true;
 $p      = "index";
 
 // Config Data
-require "lib/config.inc.php";
+include "config.inc.php";
     
 // Include the language
-require "lib/lang/".$lang.".php";
+include "lib/lang/".$lang.".php";
+
+session_name("webiforjcmp");
+session_start();
 
 if(isset($_GET["p"])) { $p = $_GET["p"]; }
 
