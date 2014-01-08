@@ -18,15 +18,15 @@ ini_set('display_errors', '1');
     
 $main   = true; // Security variable
 
+// session stuff
+session_name("webiforjcmp");
+session_start();
+
 // including stuff
 include "config.inc.php";
 include "lib/lang/".$lang.".php";
 include "lib/functions.inc.php";
 include "lib/server.class.inc.php";
-
-// session stuff
-session_name("webiforjcmp");
-session_start();
 
 // checks the session
 if(isset($_SESSION["active"])) { $sactive = true; }

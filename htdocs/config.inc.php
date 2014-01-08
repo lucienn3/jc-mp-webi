@@ -28,6 +28,6 @@ $p      = "index";  // the main page
 
 // session active variable
 $sactive = false;
-$dir = __DIR__;
+define("DIR", __DIR__);
 
 ?>

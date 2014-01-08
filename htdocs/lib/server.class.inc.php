@@ -1,7 +1,7 @@
 <?php
 
     if(!isset($main) AND $main != TRUE) DIE;
-	class games {
+	class server {
 		
 		// set global variables
 		public $count;
@@ -14,7 +14,7 @@
           $this->server = array();
 		
 		  // open the dictory
-		  $class_dir = openDir($dir."/server");
+		  $class_dir = openDir(DIR."/server");
 		      
 		  // Loop for reading all the Configs
 		  while ($file = readDir($class_dir)) {
@@ -26,7 +26,7 @@
 				if(is_dir($file) == false) {
 					
 					// If the Path is the XML
-					if (file_exists($dir."/server/".$file."/config.lua")) {
+					if (file_exists(DIR."/server/".$file."/config.lua")) {
 						
 						
 						
