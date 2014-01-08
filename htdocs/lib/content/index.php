@@ -1,8 +1,6 @@
 <?php
+// INDEX PAGE
 
-
-echo "TEST"
-
+    if ($sactive == false) { send("login"); } 
 
 ?>
-dwadawdaw
