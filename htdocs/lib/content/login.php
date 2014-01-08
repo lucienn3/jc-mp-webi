@@ -1,3 +1,27 @@
+<?php
+    
+    if ($sactive == true) { send("index"); } 
+    if(isset($_POST["submit"])) {
+        if($_POST["password"] == "") {
+            ?>
+            <div class="alert alert-warning"><?php echo LOGIN_ERROR_EMPTY; ?></div>
+            <?php
+        } else {
+            if($_POST["password"] == PASSWORD) {
+                $_SESSION["active"] = true;
+                ?>
+                <div class="alert alert-success"><?php echo LOGIN_ERROR_SUCCESS; ?></div>
+                <?php
+                sendto("index.php?p=index",3);
+            } else {
+                ?>
+                <div class="alert alert-danger"><?php echo LOGIN_ERROR_WRONG; ?></div>
+                <?php
+            }
+        }
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="<?php echo $lang; ?>">
   <head>
@@ -6,15 +30,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<?php echo PAGE_DESC; ?>">
     <meta name="author" content="TuaTim">
-    <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
 
     <title><?php echo PAGE_NAME; ?></title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="signin.css" rel="stylesheet">
+    <link href="assets/css/signin.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -28,17 +52,11 @@
     <div class="container">
 
       <form class="form-signin" role="form" method="POST">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <input type="text" class="form-control" placeholder="Email address" required autofocus>
-        <input type="password" class="form-control" placeholder="Password" required>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <h2 class="form-signin-heading"><?php echo LOGIN_HEAD_TEXT; ?></h2>
+        <input type="password" class="form-control" name="password" placeholder="<?php echo LOGIN_PLACEHOLDER; ?>" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit"><?php echo LOGIN_SINGIN; ?></button>
       </form>
 
     </div> <!-- /container -->
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
   </body>
 </html>
