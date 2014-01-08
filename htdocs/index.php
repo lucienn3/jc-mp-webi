@@ -18,16 +18,16 @@ ini_set('display_errors', '1');
     
 // set important variables
 $main   = true;
-$p      = "index";
 
-// Config Data
+// including stuff
 include "config.inc.php";
-    
-// Include the language
 include "lib/lang/".$lang.".php";
+include "lib/functions.inc.php";
 
-session_name("webiforjcmp");
 session_start();
+session_name("webiforjcmp");
+
+if(isset($_SESSION["active"])) { $sactive = true; }
 
 if(isset($_GET["p"])) { $p = $_GET["p"]; }
 
@@ -36,5 +36,7 @@ if($p == "index" ) {
 } elseif($p == "login" ) {
     include "lib/content/login.php";
 }
+
+
 
 ?>
