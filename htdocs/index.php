@@ -24,9 +24,9 @@ session_start();
 
 // including stuff
 include "config.inc.php";
-include "lib/lang/".LANG.".php";
-include "lib/functions.inc.php";
-include "lib/server.class.inc.php";
+include DIR."/lib/lang/".LANG.".php";
+include DIR."/lib/include/functions.inc.php";
+include DIR."/lib/include/server.class.inc.php";
 
 // checks the session
 if(isset($_SESSION["active"])) { $sactive = true; }
@@ -39,9 +39,9 @@ $server = new server;
 
 // includes the actual page
 if($p == "index" ) {
-    include "lib/content/index.php";
+    include DIR."/lib/content/index.php";
 } elseif($p == "login" ) {
-    include "lib/content/login.php";
+    include DIR."/lib/content/login.php";
 }
 
 
