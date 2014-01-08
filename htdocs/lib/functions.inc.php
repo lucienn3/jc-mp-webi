@@ -10,4 +10,13 @@ function send($var) {
 function sendto($var, $in) {
         echo "<meta http-equiv=\"Refresh\" content=\"".$in."; url=".$var."\">";
 }
+
+function getTempl($var) {
+    if($var == "header") {
+        return "lib/temp_header.php";
+    } elseif($var == "fooder") {
+        return "lib/temp_fooder.php";
+    } 
+
+}
 ?>
