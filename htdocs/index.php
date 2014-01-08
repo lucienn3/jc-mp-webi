@@ -24,7 +24,7 @@ session_start();
 
 // including stuff
 include "config.inc.php";
-include "lib/lang/".$lang.".php";
+include "lib/lang/".LANG.".php";
 include "lib/functions.inc.php";
 include "lib/server.class.inc.php";
 
