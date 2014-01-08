@@ -1,6 +1,5 @@
 <?php
-$myArray = parse_ini_file(DIR."/lib/users.ini", TRUE);
-    dumparray($myArray);
+dumparray($user);
     if ($sactive == true) { send("index"); } 
     if(isset($_POST["submit"])) {
         if($_POST["password"] == "") {
@@ -8,16 +7,21 @@ $myArray = parse_ini_file(DIR."/lib/users.ini", TRUE);
             <div class="alert alert-warning"><?php echo LOGIN_ERROR_EMPTY; ?></div>
             <?php
         } else {
-
-            if($_POST["password"] == PASSWORD) {
-                $_SESSION["active"] = true;
-                ?>
-                <div class="alert alert-success"><?php echo LOGIN_ERROR_SUCCESS; ?></div>
-                <?php
-                sendto("index.php?p=index",3);
+            if(array_key_exists($_POST["user"], $user) == true) {
+                if(md5($_POST["password"]) == $user[$_POST["user"]]["password"]) {
+                    $_SESSION["active"] = true;
+                    ?>
+                    <div class="alert alert-success"><?php echo LOGIN_ERROR_SUCCESS; ?></div>
+                    <?php
+                    sendto("index.php?p=index",3);
+                } else {
+                    ?>
+                    <div class="alert alert-danger"><?php echo LOGIN_ERROR_WRONG_PW; ?></div>
+                    <?php
+                }
             } else {
                 ?>
-                <div class="alert alert-danger"><?php echo LOGIN_ERROR_WRONG; ?></div>
+                <div class="alert alert-danger"><?php echo LOGIN_ERROR_WRONG_USER; ?></div>
                 <?php
             }
         }
@@ -55,7 +59,8 @@ $myArray = parse_ini_file(DIR."/lib/users.ini", TRUE);
 
       <form class="form-signin" role="form" method="POST">
         <h2 class="form-signin-heading"><?php echo LOGIN_HEAD_TEXT; ?></h2>
-        <input type="password" class="form-control" name="password" placeholder="<?php echo LOGIN_PLACEHOLDER; ?>">
+          <input type="text" class="form-control" name="user" placeholder="<?php echo LOGIN_PLACEHOLDER_USERNAME; ?>" required autofocus>
+        <input type="password" class="form-control" name="password" placeholder="<?php echo LOGIN_PLACEHOLDER_PASSWORD; ?>">
         <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit"><?php echo LOGIN_SINGIN; ?></button>
       </form>
 
