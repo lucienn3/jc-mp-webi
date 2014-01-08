@@ -2,7 +2,7 @@
 
     if(!isset($main) AND $main != TRUE) DIE;
 	class server {
-		
+        
 		// set global variables
 		public $counte;
 		public $server;
@@ -25,6 +25,7 @@
                 if($in_coment == true) {
                 } else {
                     if($isnotcomment === false AND $isplayerspawn === false) {
+                        if (count(explode(' ', $line)) > 1) {
                         $dline = str_replace(",", "", $line);
                         $dline = str_replace("{", "", $dline);
                         $dline = str_replace("}", "", $dline);
@@ -36,7 +37,18 @@
                         $dline = str_replace("Module =","[Module]", $dline);
                         $dline = str_replace("World =","[World]", $dline);
                         fwrite($file, $dline . '');
+                        }
                     } else {
+                        if( $isplayerspawn > 0) {
+                        $playerspawn = stripos($line, "Vector3(");
+                        $klammer = stripos($line, " )");
+                        $dline = substr($line, 0, $playerspawn-1);
+                        $dline .= ' "';
+                        $dline .= substr($line, $playerspawn, -3 );
+                        $dline .= ')"';
+                        $dline .= substr($line, -1);
+                        fwrite($file, $dline . '');
+                        }
                     }
                 }
             }
