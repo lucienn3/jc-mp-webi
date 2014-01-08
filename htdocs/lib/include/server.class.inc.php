@@ -42,7 +42,7 @@
             }
             fclose($file);
             
-            $ini_array = parse_ini_file($tmp_file);
+            $ini_array = parse_ini_file($tmp_file, TRUE);
             unlink($tmp_file);
             return $ini_array;
 		}
@@ -86,6 +86,7 @@
 		
 		// counted the number of server
 		$this->counte = count($this->server);
+        
 		}
 		
 		
