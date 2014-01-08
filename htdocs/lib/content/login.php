@@ -10,6 +10,7 @@ dumparray($user);
             if(array_key_exists($_POST["user"], $user) == true) {
                 if(md5($_POST["password"]) == $user[$_POST["user"]]["password"]) {
                     $_SESSION["active"] = true;
+                    $_SESSION["user"] = $_POST["user"];
                     ?>
                     <div class="alert alert-success"><?php echo LOGIN_ERROR_SUCCESS; ?></div>
                     <?php
