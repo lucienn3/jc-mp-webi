@@ -86,9 +86,6 @@
 		
 		// counted the number of server
 		$this->counte = count($this->server);
-            
-        print_r($this->server);
-        print_r($this->counte);
 		}
 		
 		
