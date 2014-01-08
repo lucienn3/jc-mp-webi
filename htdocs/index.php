@@ -36,6 +36,7 @@ if(isset($_GET["p"])) { $p = $_GET["p"]; }
 
 // database
 $server = new server;
+$user = parse_ini_file(DIR."/lib/users.ini", TRUE);
 
 // includes the actual page
 if($p == "index" ) {
