@@ -22,12 +22,12 @@ $lang = "de"; // en = english, ge = german
 // Other things
 $p      = "index";  // the main page
 
-
 /*////////////////////
 // DO NOT CHANGE!   //
 ////////////////////*/
 
 // session active variable
 $sactive = false;
+$dir = __DIR__;
 
 ?>

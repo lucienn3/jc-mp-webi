@@ -22,10 +22,11 @@ $main   = true; // Security variable
 include "config.inc.php";
 include "lib/lang/".$lang.".php";
 include "lib/functions.inc.php";
+include "lib/server.class.inc.php";
 
 // session stuff
-session_start();
 session_name("webiforjcmp");
+session_start();
 
 // checks the session
 if(isset($_SESSION["active"])) { $sactive = true; }
@@ -34,7 +35,7 @@ if(isset($_SESSION["active"])) { $sactive = true; }
 if(isset($_GET["p"])) { $p = $_GET["p"]; }
 
 // database
-$db = new SQLite3('lib/database.db');
+$server = new server;
 
 // includes the actual page
 if($p == "index" ) {
