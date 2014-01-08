@@ -17,7 +17,7 @@ define("PAGE_DESC","This is a webinterface for Just Cause 2 Multiplayer.");
 define("PASSWORD", "test1234");
 
 // Language
-define("LANG", "de")  // en = english, ge = german
+define("LANG", "de");  // en = english, ge = german
 
 // Other things
 $p      = "index";  // the main page
