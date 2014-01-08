@@ -1,5 +1,6 @@
 <?php
-    
+$myArray = parse_ini_file(DIR."/lib/users.ini", TRUE);
+    dumparray($myArray);
     if ($sactive == true) { send("index"); } 
     if(isset($_POST["submit"])) {
         if($_POST["password"] == "") {
@@ -7,6 +8,7 @@
             <div class="alert alert-warning"><?php echo LOGIN_ERROR_EMPTY; ?></div>
             <?php
         } else {
+
             if($_POST["password"] == PASSWORD) {
                 $_SESSION["active"] = true;
                 ?>
