@@ -2,9 +2,12 @@
 
 function send($var) {
     if($var == "index") {
-        echo "";
+        echo "<meta http-equiv=\"Refresh\" content=\"0; url=index.php?p=index\">";
     } elseif($var == "login") {
-        echo "";
+        echo "<meta http-equiv=\"Refresh\" content=\"0; url=index.php?p=login\">";
     }
+}
+function sendto($var, $in) {
+        echo "<meta http-equiv=\"Refresh\" content=\"".$in."; url=".$var."\">";
 }
 ?>
