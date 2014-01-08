@@ -53,7 +53,7 @@
 
       <form class="form-signin" role="form" method="POST">
         <h2 class="form-signin-heading"><?php echo LOGIN_HEAD_TEXT; ?></h2>
-        <input type="password" class="form-control" name="password" placeholder="<?php echo LOGIN_PLACEHOLDER; ?>" required>
+        <input type="password" class="form-control" name="password" placeholder="<?php echo LOGIN_PLACEHOLDER; ?>">
         <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit"><?php echo LOGIN_SINGIN; ?></button>
       </form>
 
