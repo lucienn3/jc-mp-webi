@@ -42,6 +42,10 @@ if($p == "index" ) {
     include DIR."/lib/content/index.php";
 } elseif($p == "login" ) {
     include DIR."/lib/content/login.php";
+} elseif($p == "logout" ) {
+    include DIR."/lib/content/logout.php";
+} else {
+    send("index");   
 }
 
 
