@@ -13,9 +13,9 @@ function sendto($var, $in) {
 
 function getTempl($var) {
     if($var == "header") {
-        return "lib/temp_header.php";
+        return "lib/template/header.php";
     } elseif($var == "fooder") {
-        return "lib/temp_fooder.php";
+        return "lib/template/fooder.php";
     } 
 
 }
