@@ -19,4 +19,10 @@ function getTempl($var) {
     } 
 
 }
+
+function dumparray( $array) {
+    echo "<pre>";
+    var_export($array);
+    echo "</pre>";    
+}
 ?>
