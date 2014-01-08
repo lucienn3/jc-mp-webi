@@ -13,9 +13,6 @@ if(!isset($main)) DIE("No Access here!");
 define("PAGE_NAME","Webinterface");
 define("PAGE_DESC","This is a webinterface for Just Cause 2 Multiplayer.");
 
-// Login
-define("PASSWORD", "test1234");
-
 // Language
 define("LANG", "de");  // en = english, ge = german
 
