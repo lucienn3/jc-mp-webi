@@ -15,5 +15,10 @@ define("LOGIN_ERROR_SUCCESS","Sie sind nun eingeloggt. Sie werden weitergeleitet
 define("NAV_INDEX","Serverliste");
 define("NAV_ADD","Server hinzuf&uuml;gen");
 define("NAV_ADMIN_USER","Userliste");
+define("NAV_ADMIN_DROP_TITLE","Benutzer");
+define("NAV_ADMIN_DROP_ADMIN","Sie sind Admin");
+define("NAV_ADMIN_DROP_PASSWORD","Passwort &auml;ndern");
+define("NAV_ADMIN_DROP_LOGOUT","Logout");
+
 
 ?>
