@@ -35,7 +35,8 @@ function dumparray( $array) {
 }
 
 class filesystem {
-     public $arraylist;
+    public $arraylist;
+    public $error;
 	
 	function check() {
     
@@ -49,6 +50,13 @@ class filesystem {
         $this->arraylist = "";
         $this->arraylist = array(); 
         $this->readDirs($path);
+        foreach($this->arraylist as $file) {
+             if(!is_readable($file)) {
+                 $this->error .= "<div class=\"alert alert-warning\">".FILESYSTEM_ERROR_NOREAD.$file."</div>";
+             }
+         }
+             
+      }
     }
     
     function readDirs($path){

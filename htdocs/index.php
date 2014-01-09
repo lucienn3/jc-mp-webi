@@ -1,4 +1,8 @@
 <?php
+$time = microtime();
+$time = explode(' ', $time);
+$time = $time[1] + $time[0];
+$start = $time;
 
 /*////////////////////////////////
 // Webinterface for             //
@@ -32,7 +36,9 @@ include DIR."/lib/include/server.class.inc.php";
 $filesystem = new filesystem;
 $filesystem->check();
 $filesystem->checkchmod(DIR);
+echo $filesystem->error;
 $server = new server;
+echo $server->error;
 $user = parse_ini_file(DIR."/lib/users.ini", TRUE);
 
 
@@ -75,4 +81,14 @@ dumparray($user);
 dumparray($_SESSION);
 dumparray($server->server);
 dumparray($filesystem->arraylist);
+
+echo "<br>";
+echo "<br>";
+echo "<br>";
+$time = microtime();
+$time = explode(' ', $time);
+$time = $time[1] + $time[0];
+$finish = $time;
+$total_time = round(($finish - $start), 4);
+echo 'Page generated in '.$total_time.' seconds.';
 ?>
