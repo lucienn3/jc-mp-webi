@@ -21,9 +21,5 @@ define("NAV_ADMIN_DROP_PASSWORD","Passwort &auml;ndern");
 define("NAV_ADMIN_DROP_LOGOUT","Logout");
 define("NAV_ADMIN_SERVER","Server Kontrolle");
 
-// Filesystem Error
-define("FILESYSTEM_ERROR_NOREAD", "The following file is unreadable or not found, please make it readable: ");
-define("FILESYSTEM_ERROR_NOEXECUTE", "The following file is unexecutable or not found, please check this: ");
-
 
 ?>

@@ -35,7 +35,7 @@
                 <li><a href="index.php?p=server&id=<?php echo $_SESSION["serverid"]; ?>"><?php echo NAV_ADMIN_SERVER; ?> </a></li>
                 <?php
             }
-            if($user[$_SESSION["user"]]["permission"] == "-1") {
+            if(SESSION_PERMISSION == "-1") {
                 ?>
                 <li><a href="index.php?p=add"><?php echo NAV_ADD; ?></a></li>
                 <li><a href="index.php?p=userlist"><?php echo NAV_ADMIN_USER; ?></a></li>
@@ -48,7 +48,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo NAV_ADMIN_DROP_TITLE; ?> <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <?php
-            if($user[$_SESSION["user"]]["permission"] == "-1") {
+            if(SESSION_PERMISSION == "-1") {
               ?>
               <li><a href="#"><?php echo NAV_ADMIN_DROP_ADMIN; ?></a></li>
               <?php

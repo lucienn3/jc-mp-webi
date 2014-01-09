@@ -1,8 +1,4 @@
 <?php
-$time = microtime();
-$time = explode(' ', $time);
-$time = $time[1] + $time[0];
-$start = $time;
 
 /*////////////////////////////////
 // Webinterface for             //
@@ -32,47 +28,51 @@ include DIR."/lib/lang/".LANG.".php";
 include DIR."/lib/include/functions.inc.php";
 include DIR."/lib/include/server.class.inc.php";
 
-// checks the session
-if(isset($_SESSION["active"])) { $sactive = true; }
+// database
+$filesystem = new filesystem;
+$filesystem->check();
+$filesystem->checkchmod(DIR);
+$server = new server;
+$user = parse_ini_file(DIR."/lib/users.ini", TRUE);
+
+
+// checks and activates the session
+if(isset($_SESSION["active"]) AND $_SESSION["active"] == true) { 
+	define("SESSION_ACTIVE", "true");
+	define("SESSION_USER", $_SESSION["user"]);
+	define("SESSION_PERMISSION", $user[$_SESSION["user"]]["permission"]);
+} else {
+	define("SESSION_ACTIVE", "false");
+}
 
 // Checks the page
 if(isset($_GET["p"])) { $p = $_GET["p"]; }
 
-// Database
-// Check Server and load Configs
-$server = new server;
-echo $server->error;
-// Load user database
+
+	if($p == "login" ) {
+		if (SESSION_ACTIVE === "true") { send("index"); DIE;} 
+			include DIR."/lib/content/login.php";
+	} else {
+		if (SESSION_ACTIVE == "false") { send("login"); DIE;} 
+		unset($user);	
+
+		// includes the actual page
+		if($p == "index" ) {
+			include DIR."/lib/content/index.php";
+		} elseif($p == "logout" ) {
+			include DIR."/lib/content/logout.php";
+		} elseif($p == "userlist" ) {
+			include DIR."/lib/content/userlist.php";
+		} else {
+			send("index");   
+		}
+
+	}
+
+
 $user = parse_ini_file(DIR."/lib/users.ini", TRUE);
-// Check Filesystem
-$filesystem = new filesystem;
-$filesystem->checkchmod(DIR);
-echo $filesystem->error;
-
-
-// includes the actual page
-if($p == "index" ) {
-    include DIR."/lib/content/index.php";
-} elseif($p == "login" ) {
-    include DIR."/lib/content/login.php";
-} elseif($p == "logout" ) {
-    include DIR."/lib/content/logout.php";
-} else {
-    send("index");   
-}
-
 dumparray($user);
 dumparray($_SESSION);
 dumparray($server->server);
 dumparray($filesystem->arraylist);
-
-echo "<br>";
-echo "<br>";
-echo "<br>";
-$time = microtime();
-$time = explode(' ', $time);
-$time = $time[1] + $time[0];
-$finish = $time;
-$total_time = round(($finish - $start), 4);
-echo 'Page generated in '.$total_time.' seconds.';
 ?>
