@@ -19,6 +19,7 @@ define("NAV_ADMIN_DROP_TITLE","Benutzer");
 define("NAV_ADMIN_DROP_ADMIN","Sie sind Admin");
 define("NAV_ADMIN_DROP_PASSWORD","Passwort &auml;ndern");
 define("NAV_ADMIN_DROP_LOGOUT","Logout");
+define("NAV_ADMIN_SERVER","Server Kontrolle");
 
 
 ?>

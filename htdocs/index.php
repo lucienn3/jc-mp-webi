@@ -38,6 +38,9 @@ if(isset($_GET["p"])) { $p = $_GET["p"]; }
 $server = new server;
 $user = parse_ini_file(DIR."/lib/users.ini", TRUE);
 
+$filesystem = new filesystem;
+$filesystem->checkchmod(DIR);
+
 // includes the actual page
 if($p == "index" ) {
     include DIR."/lib/content/index.php";
@@ -49,6 +52,8 @@ if($p == "index" ) {
     send("index");   
 }
 
-
-
+dumparray($user);
+dumparray($_SESSION);
+dumparray($server->server);
+dumparray($filesystem->arraylist);
 ?>

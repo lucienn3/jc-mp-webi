@@ -1,5 +1,4 @@
 <?php
-dumparray($user);
     if ($sactive == true) { send("index"); } 
     if(isset($_POST["submit"])) {
         if($_POST["password"] == "") {

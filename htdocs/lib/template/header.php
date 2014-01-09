@@ -29,13 +29,18 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="index.php?p=index"><?php echo NAV_INDEX; ?></a></li>
-            <li><a href="index.php?p=add"><?php echo NAV_ADD; ?></a></li>
             <?php
-            if($user[$_SESSION["user"]]["permission"] == "-1") {
-              ?>
-              <li><a href="index.php?p=userlist"><?php echo NAV_ADMIN_USER; ?></a></li>
-              <?php
+            if(isset($_SESSION["serverid"])) {
+                ?>
+                <li><a href="index.php?p=server&id=<?php echo $_SESSION["serverid"]; ?>"><?php echo NAV_ADMIN_SERVER; ?> </a></li>
+                <?php
             }
+            if($user[$_SESSION["user"]]["permission"] == "-1") {
+                ?>
+                <li><a href="index.php?p=add"><?php echo NAV_ADD; ?></a></li>
+                <li><a href="index.php?p=userlist"><?php echo NAV_ADMIN_USER; ?></a></li>
+                <?php
+                }
             ?>
           </ul>
 		  <ul class="nav navbar-nav navbar-right">
@@ -49,8 +54,8 @@
               <?php
             }
             ?>
-                <li><a href="#"><?php echo NAV_ADMIN_DROP_PASSWORD; ?></a></li>
-                <li><a href="#"><?php echo NAV_ADMIN_DROP_LOGOUT; ?></a></li>
+                <li><a href="index.php?p=me"><?php echo NAV_ADMIN_DROP_PASSWORD; ?></a></li>
+                <li><a href="index.php?p=logout"><?php echo NAV_ADMIN_DROP_LOGOUT; ?></a></li>
               </ul>
             </li>
           </ul>
