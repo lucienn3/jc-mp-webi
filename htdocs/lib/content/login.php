@@ -6,6 +6,7 @@
             <?php
         } else {
             if(array_key_exists($_POST["user"], $user) == true) {
+                if($user[$_POST["user"]]["active"] == 1) {
                 if(md5($_POST["password"]) == $user[$_POST["user"]]["password"]) {
                     $_SESSION["active"] = true;
                     $_SESSION["user"] = $_POST["user"];
@@ -17,6 +18,7 @@
                     ?>
                     <div class="alert alert-danger"><?php echo LOGIN_ERROR_WRONG_PW; ?></div>
                     <?php
+                }
                 }
             } else {
                 ?>

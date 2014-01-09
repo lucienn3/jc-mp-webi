@@ -41,18 +41,21 @@ $server = new server;
 echo $server->error;
 $user = parse_ini_file(DIR."/lib/users.ini", TRUE);
 
+// Checks the page
+if(isset($_GET["p"])) { $p = $_GET["p"]; }
 
 // checks and activates the session
 if(isset($_SESSION["active"]) AND $_SESSION["active"] == true) { 
+    if($user[$_SESSION["user"]]["active"] == 0 && $p != "logout") {
+        sendto("index.php?p=logout",0);
+        DIE;
+    }
 	define("SESSION_ACTIVE", "true");
 	define("SESSION_USER", $_SESSION["user"]);
 	define("SESSION_PERMISSION", $user[$_SESSION["user"]]["permission"]);
 } else {
 	define("SESSION_ACTIVE", "false");
 }
-
-// Checks the page
-if(isset($_GET["p"])) { $p = $_GET["p"]; }
 
 
 	if($p == "login" ) {
@@ -74,8 +77,9 @@ if(isset($_GET["p"])) { $p = $_GET["p"]; }
 	           }
             if($p == "userlist" ) {
                 include DIR."/lib/content/userlist.php";
+            } else {
+                send("index");   
             }
-        
         }
     }
 

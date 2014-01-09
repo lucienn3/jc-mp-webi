@@ -28,7 +28,13 @@ define("NAV_ADMIN_SERVER","Server Controll");
 // Userlist
 define("USERLIST_NAME","Username");
 define("USERLIST_PERMESSION","Permissions");
-define("USERLIST_ACTIVE","Aktiviert");
-
+define("USERLIST_ACTIVE","Active ?");
+define("USERLIST_ACTIVE_TRUE","active");
+define("USERLIST_ACTIVE_FALSE","inactive");
+define("USERLIST_ACTIONS","actions");
+define("USERLIST_ACTIVE_TRUE_TURN","reactivate");
+define("USERLIST_ACTIVE_FALSE_TURN","deactivate");
+define("USERLIST_CHANGE","change password");
+define("USERLIST_PERM","change rights");
 
 ?>
