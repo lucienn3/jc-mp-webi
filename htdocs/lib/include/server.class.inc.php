@@ -6,6 +6,7 @@
 		// set global variables
 		public $counte;
 		public $server;
+        public $error;
 		
 		function getcf($data) {
             
@@ -84,7 +85,10 @@
 				if(is_dir(DIR."/server/".$file) == true) {
 				    
 					$obj = DIR."/server/".$file."/config.lua";
-					
+					if ( !is_executable(DIR."/server/".$file."/Jcmp-Server")) {
+                        $this->error .= "<div class=\"alert alert-danger\">".FILESYSTEM_ERROR_NOEXECUTE.DIR."/server/".$file."/Jcmp-Server</div>";
+                    }
+                        
 					if (file_exists($obj)) { 
                         $bla = $this->getcf($obj);
 						$this->server[$file] = $bla;

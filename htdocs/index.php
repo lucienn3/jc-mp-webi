@@ -1,4 +1,8 @@
 <?php
+$time = microtime();
+$time = explode(' ', $time);
+$time = $time[1] + $time[0];
+$start = $time;
 
 /*////////////////////////////////
 // Webinterface for             //
@@ -34,12 +38,17 @@ if(isset($_SESSION["active"])) { $sactive = true; }
 // Checks the page
 if(isset($_GET["p"])) { $p = $_GET["p"]; }
 
-// database
+// Database
+// Check Server and load Configs
 $server = new server;
+echo $server->error;
+// Load user database
 $user = parse_ini_file(DIR."/lib/users.ini", TRUE);
-
+// Check Filesystem
 $filesystem = new filesystem;
 $filesystem->checkchmod(DIR);
+echo $filesystem->error;
+
 
 // includes the actual page
 if($p == "index" ) {
@@ -56,4 +65,14 @@ dumparray($user);
 dumparray($_SESSION);
 dumparray($server->server);
 dumparray($filesystem->arraylist);
+
+echo "<br>";
+echo "<br>";
+echo "<br>";
+$time = microtime();
+$time = explode(' ', $time);
+$time = $time[1] + $time[0];
+$finish = $time;
+$total_time = round(($finish - $start), 4);
+echo 'Page generated in '.$total_time.' seconds.';
 ?>
