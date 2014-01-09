@@ -11,6 +11,9 @@ define("LOGIN_ERROR_WRONG_PW","Das Passwort ist falsch.");
 define("LOGIN_ERROR_WRONG_USER","Das Username ist falsch.");
 define("LOGIN_ERROR_SUCCESS","Sie sind nun eingeloggt. Sie werden weitergeleitet.");
 
-
+// Navigation
+define("NAV_INDEX","Serverliste");
+define("NAV_ADD","Server hinzuf&uuml;gen");
+define("NAV_ADMIN_USER","Userliste");
 
 ?>
