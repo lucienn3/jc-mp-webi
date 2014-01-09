@@ -1,4 +1,5 @@
-      <!-- Site footer -->
+    <hr>      
+<!-- Site footer -->
       <div class="footer">
         <p>&copy; TuaTim 2013 - 2014</p>
       </div>
