@@ -67,14 +67,17 @@ if(isset($_GET["p"])) { $p = $_GET["p"]; }
 			include DIR."/lib/content/index.php";
 		} elseif($p == "logout" ) {
 			include DIR."/lib/content/logout.php";
-		} elseif($p == "userlist" ) {
-			include DIR."/lib/content/userlist.php";
 		} else {
-			send("index");   
-		}
-
-	}
-
+            if(SESSION_PERMISSION != "-1") {
+		          send("index");
+		          DIE;
+	           }
+            if($p == "userlist" ) {
+                include DIR."/lib/content/userlist.php";
+            }
+        
+        }
+    }
 
 $user = parse_ini_file(DIR."/lib/users.ini", TRUE);
 dumparray($user);

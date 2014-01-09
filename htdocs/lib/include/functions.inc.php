@@ -21,13 +21,6 @@ function getTempl($var) {
 
 }
 
-function cheackadmin() {
-	if(SESSION_PERMISSION != "-1") {
-		//send("index");
-		DIE;
-	}
-}
-
 function dumparray( $array) {
     echo "<pre>";
     var_export($array);

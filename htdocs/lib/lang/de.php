@@ -26,4 +26,9 @@ define("NAV_ADMIN_SERVER","Server Kontrolle");
  define("FILESYSTEM_ERROR_NOREAD", "The following file is unreadable or not found, please make it readable: ");
  define("FILESYSTEM_ERROR_NOEXECUTE", "The following file is unexecutable or not found, please check this: ");
 
+// Userlist
+define("USERLIST_NAME","Nickname");
+define("USERLIST_PERMESSION","Rechte");
+define("USERLIST_ACTIVE","Aktiviert");
+
 ?>
