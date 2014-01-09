@@ -57,7 +57,6 @@ class filesystem {
          }
              
       }
-    }
     
     function readDirs($path){
         $array = array ();
