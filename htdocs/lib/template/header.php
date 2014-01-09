@@ -30,13 +30,29 @@
           <ul class="nav navbar-nav">
             <li><a href="index.php?p=index"><?php echo NAV_INDEX; ?></a></li>
             <li><a href="index.php?p=add"><?php echo NAV_ADD; ?></a></li>
-            <?
+            <?php
             if($user[$_SESSION["user"]]["permission"] == "-1") {
               ?>
               <li><a href="index.php?p=userlist"><?php echo NAV_ADMIN_USER; ?></a></li>
               <?php
             }
             ?>
+          </ul>
+		  <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo NAV_ADMIN_DROP_TITLE; ?> <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <?php
+            if($user[$_SESSION["user"]]["permission"] == "-1") {
+              ?>
+              <li><a href="#"><?php echo NAV_ADMIN_DROP_ADMIN; ?></a></li>
+              <?php
+            }
+            ?>
+                <li><a href="#"><?php echo NAV_ADMIN_DROP_PASSWORD; ?></a></li>
+                <li><a href="#"><?php echo NAV_ADMIN_DROP_LOGOUT; ?></a></li>
+              </ul>
+            </li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
