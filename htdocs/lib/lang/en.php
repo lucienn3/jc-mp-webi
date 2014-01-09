@@ -15,5 +15,9 @@ define("LOGIN_ERROR_SUCCESS","You´re now logged in.");
 define("NAV_INDEX","Serverlist");
 define("NAV_ADD","Add Server");
 define("NAV_ADMIN_USER","Userlist");
+define("NAV_ADMIN_DROP_TITLE","User");
+define("NAV_ADMIN_DROP_ADMIN","You're Admin");
+define("NAV_ADMIN_DROP_PASSWORD","Change Password");
+define("NAV_ADMIN_DROP_LOGOUT","Logout");
 
 ?>
