@@ -41,6 +41,9 @@ $server = new server;
 echo $server->error;
 $user = parse_ini_file(DIR."/lib/users.ini", TRUE);
 
+// Check the User permission
+
+
 // Checks the page
 if(isset($_GET["p"])) { $p = $_GET["p"]; }
 
