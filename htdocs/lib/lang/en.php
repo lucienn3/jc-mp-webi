@@ -36,6 +36,7 @@ define("USERLIST_ACTIVE_TRUE_TURN","reactivate");
 define("USERLIST_ACTIVE_FALSE_TURN","deactivate");
 define("USERLIST_CHANGE","change password");
 define("USERLIST_PERM","change rights");
+define("USERLIST_DEL","delete");
 define("USERLIST_ADD","Add User");
 
 // Password change
@@ -44,6 +45,17 @@ define("PASSCH_OLDPW","old password");
 define("PASSCH_NEWPW","new password");
 define("PASSCH_NEWPWA","retype new password");
 define("PASSCH_BUTTON","change Password");
+
+// add User
+define("ADDUSER_USERMANE","Username");
+define("ADDUSER_NEWPW","Password");
+define("ADDUSER_NEWPWA","Retype Password");
+define("ADDUSER_ADMIN","Admin?");
+define("ADDUSER_BUTTON","create User");
+
+// Register
+define("REG_ERROR_WRONG_USER","The username is allready taken.");
+define("REG_ERROR_WRONG_PASS","Your passwords are not the same and please fill out all fields.");
 
 
 
