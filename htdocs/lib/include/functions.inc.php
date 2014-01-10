@@ -1,5 +1,6 @@
 <?php
 
+// send to page
 function send($var) {
     if($var == "index") {
         echo "<meta http-equiv=\"Refresh\" content=\"0; url=index.php?p=index\">";
@@ -8,6 +9,7 @@ function send($var) {
     }
 }
 
+// send to page in seconds
 function sendto($var, $in) {
         echo "<meta http-equiv=\"Refresh\" content=\"".$in."; url=".$var."\">";
 }
@@ -21,6 +23,33 @@ function getTempl($var) {
 
 }
 
+// Makes it Possible to write in a ini
+function ini_write($filePath, array $data)
+{
+    $output = '';
+ 
+    foreach ($data as $section => $values)
+    {
+        //values must be an array
+        if (!is_array($values)) {
+            continue;
+        }
+ 
+        //add section
+        $output .= "[$section]\r\n";
+ 
+        //add key/value pairs
+        foreach ($values as $key => $val) {
+            $output .= $key."=".$val."\r\n";
+        }
+        $output .= "\r\n";
+    }
+ 
+    //write data to file
+    file_put_contents($filePath, trim($output));
+}
+
+// Better looking echo of arrays
 function dumparray( $array) {
     echo "<pre>";
     var_export($array);
