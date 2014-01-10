@@ -79,6 +79,8 @@ if(isset($_SESSION["active"]) AND $_SESSION["active"] == true) {
 	           }
             if($p == "userlist" ) {
                 include DIR."/lib/content/userlist.php";
+            } elseif( $p == "adduser") {
+                include DIR."/lib/content/adduser.php";
             } else {
                 send("index");   
             }
