@@ -36,5 +36,15 @@ define("USERLIST_ACTIVE_TRUE_TURN","reactivate");
 define("USERLIST_ACTIVE_FALSE_TURN","deactivate");
 define("USERLIST_CHANGE","change password");
 define("USERLIST_PERM","change rights");
+define("USERLIST_ADD","Add User");
+
+// Password change
+define("PASSCH_USERMANE","Username");
+define("PASSCH_OLDPW","old password");
+define("PASSCH_NEWPW","new password");
+define("PASSCH_NEWPWA","retype new password");
+define("PASSCH_BUTTON","change Password");
+
+
 
 ?>
