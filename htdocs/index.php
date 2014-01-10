@@ -70,6 +70,8 @@ if(isset($_SESSION["active"]) AND $_SESSION["active"] == true) {
 			include DIR."/lib/content/index.php";
 		} elseif($p == "logout" ) {
 			include DIR."/lib/content/logout.php";
+		} elseif($p == "me" ) {
+			include DIR."/lib/content/me.php";
 		} else {
             if(SESSION_PERMISSION != "-1") {
 		          send("index");
@@ -87,7 +89,6 @@ $user = parse_ini_file(DIR."/lib/users.ini", TRUE);
 dumparray($user);
 dumparray($_SESSION);
 dumparray($server->server);
-dumparray($filesystem->arraylist);
 
 echo "<br>";
 echo "<br>";
