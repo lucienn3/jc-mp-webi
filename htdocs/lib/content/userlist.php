@@ -15,8 +15,7 @@ if(isset($_GET["a"]) && $_GET["a"] == "act") {
     }
 }
 
-// INDEX PAGE
-// Serverlist
+
 include getTempl("header");
 ?>
 <table class="table table-hover">
@@ -24,8 +23,6 @@ include getTempl("header");
     <th><?php echo USERLIST_NAME; ?></th>
     <th><?php echo USERLIST_PERMESSION; ?></th>
     <th><?php echo USERLIST_ACTIVE; ?></th>
-    <th><?php echo USERLIST_ACTIONS; ?></th>
-    <th></th>
     <th></th>
     </tr>
 <?php
@@ -40,9 +37,22 @@ include getTempl("header");
             echo "<td>".USERLIST_ACTIVE_FALSE."</td>"; 
             $reactive = USERLIST_ACTIVE_TRUE_TURN;
         }
-        echo "<td><a href=\"index.php?p=userlist&id=".$key."&a=act\"><span class=\"glyphicon glyphicon-ok\"> ".$reactive."</span></a></td>";
-        echo "<td><a href=\"index.php?p=me&id=".$key."\"><span class=\"glyphicon glyphicon-wrench\"> ".USERLIST_CHANGE."</span></a></td>";
-        echo "<td><a href=\"\"><span class=\"glyphicon glyphicon-tower \"> ".USERLIST_PERM."</span></a></td>";
+        ?>
+        <td>
+        <!-- Single button -->
+        <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">&nbsp;<?php echo USERLIST_ACTIONS; ?>&nbsp;&nbsp;<span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+            <li><a href="index.php?p=userlist&id=<?php echo $key;?>&a=act"><span class="glyphicon glyphicon-lock"> <?php echo $reactive; ?></span></a></li>
+            <li><a href="index.php?p=me&id=<?php echo $key;?>"><span class="glyphicon glyphicon-wrench"> <?php echo USERLIST_CHANGE; ?></span></a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-tower"> <?php echo USERLIST_PERM; ?></span></a></li>
+            <li class="divider"></li>
+            <li><a href="#"><span class="glyphicon glyphicon-trash"> <?php echo USERLIST_DEL; ?></span></a></li>
+            </ul>
+        </div>
+        </td>
+        <?php
         echo "</tr>";
     }
 ?>
