@@ -85,19 +85,19 @@ if(isset($_GET["id"]) && $_GET["id"]) {
         <div class="form-group">
             <label for="inputPassword" class="col-sm-4 control-label"><?php echo PASSCH_OLDPW; ?></label>
             <div class="col-sm-8">
-                <input type="password" class="form-control" name="oldpassword" placeholder="Password">
+                <input type="password" class="form-control" name="oldpassword" placeholder="<?php echo LOGIN_PLACEHOLDER_PASSWORD; ?>">
             </div>
         </div>
         <div class="form-group">
             <label for="inputPassword" class="col-sm-4 control-label"><?php echo PASSCH_NEWPW; ?></label>
             <div class="col-sm-8">
-                <input type="password" class="form-control" name="newpass" placeholder="Password">
+                <input type="password" class="form-control" name="newpass" placeholder="<?php echo LOGIN_PLACEHOLDER_PASSWORD; ?>">
             </div>
         </div>
         <div class="form-group">
             <label for="inputPassword" class="col-sm-4 control-label"><?php echo PASSCH_NEWPWA; ?></label>
             <div class="col-sm-8">
-                <input type="password" class="form-control" name="newpassre" placeholder="Password">
+                <input type="password" class="form-control" name="newpassre" placeholder="<?php echo LOGIN_PLACEHOLDER_PASSWORD; ?>">
             </div>
         </div>
         <div class="form-group">
