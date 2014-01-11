@@ -57,6 +57,8 @@ define("ADDUSER_BUTTON","Benutzer erstellen");
 define("REG_ERROR_WRONG_USER","Dieser Benutzername ist schon vergeben.");
 define("REG_ERROR_WRONG_PASS","Ihre Passw&ouml;rter stimmen nicht über ein. Au&szlig;erdem f&uuml;llen Sie bitte alle Felder aus.");
 
-
+// delte User
+define("DELLUSER_CHECK","diesen Benutzer l&ouml;schen.");
+define("DELLUSER_BUTTON","Best&auml;tigen");
 
 ?>

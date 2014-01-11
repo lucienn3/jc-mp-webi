@@ -48,7 +48,7 @@ include getTempl("header");
             <li><a href="index.php?p=me&id=<?php echo $key;?>"><span class="glyphicon glyphicon-wrench"> <?php echo USERLIST_CHANGE; ?></span></a></li>
             <li><a href="#"><span class="glyphicon glyphicon-tower"> <?php echo USERLIST_PERM; ?></span></a></li>
             <li class="divider"></li>
-            <li><a href="#"><span class="glyphicon glyphicon-trash"> <?php echo USERLIST_DEL; ?></span></a></li>
+            <li><a href="index.php?p=deluser&id=<?php echo $key;?>"><span class="glyphicon glyphicon-trash"> <?php echo USERLIST_DEL; ?></span></a></li>
             </ul>
         </div>
         </td>

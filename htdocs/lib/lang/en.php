@@ -57,6 +57,11 @@ define("ADDUSER_BUTTON","create User");
 define("REG_ERROR_WRONG_USER","The username is allready taken.");
 define("REG_ERROR_WRONG_PASS","Your passwords are not the same and please fill out all fields.");
 
+// delte User
+define("DELLUSER_CHECK","delete this user.");
+define("DELLUSER_BUTTON","Confirm");
+
+
 
 
 ?>
