@@ -86,6 +86,8 @@ if(isset($_SESSION["active"]) AND $_SESSION["active"] == true) {
                 include DIR."/lib/content/adduser.php";
             } elseif( $p == "deluser") {
                 include DIR."/lib/content/deluser.php";
+            } elseif( $p == "add") {
+                include DIR."/lib/content/add.php";
             } else {
                 send("index");   
             }
