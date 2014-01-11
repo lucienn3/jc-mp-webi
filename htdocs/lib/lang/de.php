@@ -61,4 +61,14 @@ define("REG_ERROR_WRONG_PASS","Ihre Passw&ouml;rter stimmen nicht über ein. Au&
 define("DELLUSER_CHECK","diesen Benutzer l&ouml;schen.");
 define("DELLUSER_BUTTON","Best&auml;tigen");
 
+// Serverlist
+define("SLIST_STATUS","Online?");
+define("SLIST_NAME","Name");
+define("SLIST_PORT","Port");
+define("SLIST_PLAYERS","Spieler");
+define("SLIST_PUBLIC","&Ouml;ffentlich");
+define("SLIST_ACTIONS","Aktionen");
+// define("SLIST_","");
+
+
 ?>

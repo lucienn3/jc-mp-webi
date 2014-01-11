@@ -61,7 +61,13 @@ define("REG_ERROR_WRONG_PASS","Your passwords are not the same and please fill o
 define("DELLUSER_CHECK","delete this user.");
 define("DELLUSER_BUTTON","Confirm");
 
-
+// Serverlist
+define("SLIST_STATUS","Online?");
+define("SLIST_NAME","Name");
+define("SLIST_PORT","Port");
+define("SLIST_PLAYERS","Players");
+define("SLIST_PUBLIC","Public");
+define("SLIST_ACTIONS","Actions");
 
 
 ?>
