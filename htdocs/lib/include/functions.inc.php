@@ -18,7 +18,9 @@ function ctoken() {
 function checktoken() {
         $users = parse_ini_file(DIR."/lib/users.ini", TRUE);
         $diff = time() - $users[SESSION_USER]["token"] ; 
-        if ($diff > 120) {
+    
+    echo "<br> <h1>DIFFERENZ:</h1>".$diff;
+        if ($diff > TOKEN_TIME) {
             return false;   
         }
     return true;

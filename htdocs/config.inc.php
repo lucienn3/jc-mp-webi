@@ -8,6 +8,7 @@
 
 // Security
 if(!isset($main)) DIE("No Access here!");
+define("TOKEN_TIME","120");
     
 // General
 define("PAGE_NAME","Webinterface");

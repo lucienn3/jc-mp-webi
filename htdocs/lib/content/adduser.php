@@ -2,12 +2,13 @@
 // Database
 $user = parse_ini_file(DIR."/lib/users.ini", TRUE);
 
-if(!checktoken()) {
-    sendto("index.php?p=userlist",0);
-    die;
-}
+
 
 if(isset($_POST["submit"])) {
+    if(!checktoken()) {
+        sendto("index.php?p=userlist",0);
+        die;
+    }
     if(isset($_POST["username"]) && !array_key_exists($_POST["username"], $user)) {
         if($_POST["newpass"] != "" && $_POST["newpass"] == $_POST["newpassre"] && $_POST["username"] != "") {
             $user[$_POST["username"]] = array("password" => md5($_POST["newpass"]),"permission" => $_POST["admin"], "active" => "1");
@@ -25,7 +26,7 @@ if(isset($_POST["submit"])) {
 } else {
     ctoken();   
 }
-
+    ctoken();
     include getTempl("header");
     ?>
 <div class="row">
