@@ -1,6 +1,12 @@
 <?php
 // Database
 $user = parse_ini_file(DIR."/lib/users.ini", TRUE);
+
+if(!checktoken()) {
+    sendto("index.php?p=userlist",0);
+    die;
+}
+
 if(isset($_POST["submit"])) {
     if(isset($_POST["username"]) && !array_key_exists($_POST["username"], $user)) {
         if($_POST["newpass"] != "" && $_POST["newpass"] == $_POST["newpassre"] && $_POST["username"] != "") {
@@ -16,6 +22,8 @@ if(isset($_POST["submit"])) {
         <div class="alert alert-danger"><?php echo REG_ERROR_WRONG_USER; ?></div>
         <?php
     }
+} else {
+    ctoken();   
 }
 
     include getTempl("header");

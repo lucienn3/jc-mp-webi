@@ -9,7 +9,7 @@ if(!isset($_GET["id"]) OR !array_key_exists($_GET["id"], $user)) {
 
 
 if(isset($_POST["submit"])) {
-    if(isset($_POST["delete"]) && $_POST["delete"] == "-1") {
+    if(isset($_POST["delete"]) && $_POST["delete"] == "-1" && checktoken()) {
         $nuserdb = array();
         
         while (list($key, $val) = each($user)) {   
@@ -23,6 +23,8 @@ if(isset($_POST["submit"])) {
         sendto("index.php?p=userlist",0);
         die;
     }
+} else {
+    ctoken();   
 }
     include getTempl("header");
     ?>

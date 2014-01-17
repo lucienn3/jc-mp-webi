@@ -12,12 +12,14 @@ if(isset($_GET["id"]) && $_GET["id"]) {
     $user = parse_ini_file(DIR."/lib/users.ini", TRUE);
     if(isset($_POST["submit"])) {
         if(isset($_GET["id"]) && array_key_exists($_GET["id"], $user)) {
-            if($_POST["newpass"] == $_POST["newpassre"] AND !empty($_POST["newpass"])) {
+            if($_POST["newpass"] == $_POST["newpassre"] AND !empty($_POST["newpass"]) && checktoken()) {
                 $user[$_GET["id"]]["password"] = md5($_POST["newpass"]);
                 ini_write(DIR."/lib/users.ini", $user);
             }
             sendto("index.php?p=userlist",0);
         }
+    } else {
+        ctoken();   
     }
     
         
@@ -57,7 +59,10 @@ if(isset($_GET["id"]) && $_GET["id"]) {
 
     include getTempl("fooder");
 } else {
-    
+    if(!checktoken()) {
+        sendto("index.php?p=me",0);
+        die;
+    }
     $user = parse_ini_file(DIR."/lib/users.ini", TRUE);
     if(isset($_POST["submit"])) {
         if($user[SESSION_USER]["password"] == md5($_POST["oldpassword"]) AND $_POST["newpass"] == $_POST["newpassre"] AND $_POST["newpass"] != "") {
@@ -68,7 +73,9 @@ if(isset($_GET["id"]) && $_GET["id"]) {
             ini_write(DIR."/lib/users.ini", $user);
         }
         sendto("index.php?p=index",0);
-    }   
+    } else {
+        ctoken();   
+    }
     
     include getTempl("header");
 

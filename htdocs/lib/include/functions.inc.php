@@ -9,6 +9,21 @@ function send($var) {
     }
 }
 
+function ctoken() {
+        $users = parse_ini_file(DIR."/lib/users.ini", TRUE);
+        $users[SESSION_USER]["token"] = time();
+        ini_write(DIR."/lib/users.ini", $users);
+}
+
+function checktoken() {
+        $users = parse_ini_file(DIR."/lib/users.ini", TRUE);
+        $diff = time() - $users[SESSION_USER]["token"] ; 
+        if ($diff > 120) {
+            return false;   
+        }
+    return true;
+}
+
 // send to page in seconds
 function sendto($var, $in) {
         echo "<meta http-equiv=\"Refresh\" content=\"".$in."; url=".$var."\">";

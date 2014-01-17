@@ -47,6 +47,11 @@ $user = parse_ini_file(DIR."/lib/users.ini", TRUE);
 // Checks the page
 if(isset($_GET["p"])) { $p = $_GET["p"]; }
 
+if(isset($_SESSION["user"]) && !array_key_exists($_SESSION["user"], $user)) {
+    sendto("index.php?p=logout",0);
+    die;
+}
+
 // checks and activates the session
 if(isset($_SESSION["active"]) AND $_SESSION["active"] == true) { 
     if($user[$_SESSION["user"]]["active"] == 0 && $p != "logout") {
@@ -108,4 +113,6 @@ $time = $time[1] + $time[0];
 $finish = $time;
 $total_time = round(($finish - $start), 4);
 echo 'Page generated in '.$total_time.' seconds.';
+echo "<br/>";
+echo time();
 ?>
