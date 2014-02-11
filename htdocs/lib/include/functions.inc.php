@@ -18,8 +18,6 @@ function ctoken() {
 function checktoken() {
         $users = parse_ini_file(DIR."/lib/users.ini", TRUE);
         $diff = time() - $users[SESSION_USER]["token"] ; 
-    
-    echo "<br> <h1>DIFFERENZ:</h1>".$diff;
         if ($diff > TOKEN_TIME) {
             return false;   
         }
@@ -38,6 +36,10 @@ function getTempl($var) {
         return "lib/template/fooder.php";
     } 
 
+}
+
+function executecmd($cmd) {
+    exec($cmd . " > /dev/null &");   
 }
 
 // Makes it Possible to write in a ini
@@ -82,6 +84,12 @@ class filesystem {
 		// Check temp
 		if(!is_dir(DIR."/lib/temp")) {
 			mkdir (DIR."/lib/temp");
+		}
+        if(!is_dir(DIR."/lib/steam")) {
+			mkdir (DIR."/lib/steam");
+            file_put_contents(DIR."/lib/steam/steamcmd_linux.tar.gz", file_get_contents("http://media.steampowered.com/installer/steamcmd_linux.tar.gz"));
+            exec("tar -xvzf ".DIR."/lib/steam/steamcmd_linux.tar.gz -C ".DIR."/lib/steam/");  
+            unlink(DIR."/lib/steam/steamcmd_linux.tar.gz");
 		}
 	}
 
