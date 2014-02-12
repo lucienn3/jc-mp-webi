@@ -28,7 +28,27 @@ session_start();
 
 // including stuff
 include "config.inc.php";
-include DIR."/lib/lang/".LANG.".php";
+
+$user = parse_ini_file(DIR."/lib/users.ini", TRUE);
+// checks and activates the session
+if(isset($_SESSION["active"]) AND $_SESSION["active"] == true) { 
+    if($user[$_SESSION["user"]]["active"] == 0 && $p != "logout") {
+        sendto("index.php?p=logout",0);
+        DIE;
+    }
+	define("SESSION_ACTIVE", "true");
+	define("SESSION_USER", $_SESSION["user"]);
+	define("SESSION_PERMISSION", $user[$_SESSION["user"]]["permission"]);
+    define("SESSION_LANG", $user[$_SESSION["user"]]["lang"]);
+} else {
+	define("SESSION_ACTIVE", "false");
+}
+if(SESSION_LANG != LANG) {
+    include DIR."/lib/lang/".SESSION_LANG.".php";
+} else {
+    include DIR."/lib/lang/".LANG.".php";
+}
+
 include DIR."/lib/include/functions.inc.php";
 include DIR."/lib/include/server.class.inc.php";
 
@@ -39,7 +59,6 @@ $filesystem->checkchmod(DIR);
 echo $filesystem->error;
 $server = new server;
 echo $server->error;
-$user = parse_ini_file(DIR."/lib/users.ini", TRUE);
 
 // Check the User permission
 
@@ -51,20 +70,6 @@ if(isset($_SESSION["user"]) && !array_key_exists($_SESSION["user"], $user)) {
     sendto("index.php?p=logout",0);
     die;
 }
-
-// checks and activates the session
-if(isset($_SESSION["active"]) AND $_SESSION["active"] == true) { 
-    if($user[$_SESSION["user"]]["active"] == 0 && $p != "logout") {
-        sendto("index.php?p=logout",0);
-        DIE;
-    }
-	define("SESSION_ACTIVE", "true");
-	define("SESSION_USER", $_SESSION["user"]);
-	define("SESSION_PERMISSION", $user[$_SESSION["user"]]["permission"]);
-} else {
-	define("SESSION_ACTIVE", "false");
-}
-
 
 	if($p == "login" ) {
 		if (SESSION_ACTIVE === "true") { send("index"); DIE;} 
