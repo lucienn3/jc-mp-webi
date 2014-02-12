@@ -1,5 +1,9 @@
 ﻿<?php
-
+/*//////////////////////////////
+// Created by Esamir          //
+// Thanks for this...         //
+// http://www.jc-mp.com/forums/index.php?action=profile;u=195690
+//////////////////////////////*/
 
 // Login
 define("LOGIN_HEAD_TEXT", "Пожалуйста, авторизуйтесь");
