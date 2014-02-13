@@ -6,7 +6,7 @@
 //////////////////////////////*/
 
 // Login
-define("LOGIN_HEAD_TEXT", "Пожалуйста, авторизуйтесь");
+define("LOGIN_HEAD_TEXT", "Авторизуйтесь");
 define("LOGIN_PLACEHOLDER_USERNAME","Имя пользователя");
 define("LOGIN_PLACEHOLDER_PASSWORD", "Пароль");
 define("LOGIN_SINGIN", "Войти");
@@ -20,7 +20,7 @@ define("NAV_INDEX","Список серверов");
 define("NAV_ADD","Добавить сервер");
 define("NAV_ADMIN_USER","Список пользователей");
 define("NAV_ADMIN_DROP_TITLE","Пользователь");
-define("NAV_ADMIN_DROP_ADMIN","Вы являетесь администраором");
+define("NAV_ADMIN_DROP_ADMIN","Вы являетесь администратором");
 define("NAV_ADMIN_DROP_PASSWORD","Изменить пароль");
 define("NAV_ADMIN_DROP_LOGOUT","Выйти");
 define("NAV_ADMIN_SERVER","Управление сервером");
@@ -30,7 +30,7 @@ define("NAV_ADMIN_SERVER","Управление сервером");
  define("FILESYSTEM_ERROR_NOEXECUTE", "Следующие файлы не являются исполняемыми, проверьте права: ");
 
 // Userlist
-define("USERLIST_NAME","Имя пользователя");
+define("USERLIST_NAME","Логин");
 define("USERLIST_PERMESSION","Права доступа");
 define("USERLIST_ACTIVE","Активен?");
 define("USERLIST_ACTIVE_TRUE","активен");
@@ -70,7 +70,7 @@ define("SLIST_STATUS","Онлайн?");
 define("SLIST_NAME","Имя");
 define("SLIST_PORT","Порт");
 define("SLIST_PLAYERS","Игроки");
-define("SLIST_PUBLIC","Публичный");
+define("SLIST_PUBLIC","Публичный?");
 define("SLIST_ACTIONS","Действия");
 
 
