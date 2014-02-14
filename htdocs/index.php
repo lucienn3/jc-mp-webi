@@ -42,6 +42,7 @@ if(isset($_SESSION["active"]) AND $_SESSION["active"] == true) {
     define("SESSION_LANG", $user[$_SESSION["user"]]["lang"]);
 } else {
 	define("SESSION_ACTIVE", "false");
+    define("SESSION_LANG", LANG);
 }
 if(SESSION_LANG != LANG) {
     include DIR."/lib/lang/".SESSION_LANG.".php";
@@ -103,7 +104,7 @@ if(isset($_SESSION["user"]) && !array_key_exists($_SESSION["user"], $user)) {
             }
         }
     }
-
+/*
 $user = parse_ini_file(DIR."/lib/users.ini", TRUE);
 dumparray($user);
 dumparray($_SESSION);
@@ -120,4 +121,5 @@ $total_time = round(($finish - $start), 4);
 echo 'Page generated in '.$total_time.' seconds.';
 echo "<br/>";
 echo time();
+*/
 ?>
