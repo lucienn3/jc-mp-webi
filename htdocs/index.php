@@ -27,14 +27,20 @@ session_name("webiforjcmp");
 session_start();
 
 // including stuff
-include "config.inc.php";
+require "config.inc.php";
+include DIR."/lib/include/functions.inc.php";
+include DIR."/lib/include/server.class.inc.php";
 
 $user = parse_ini_file(DIR."/lib/users.ini", TRUE);
 // checks and activates the session
-if(isset($_SESSION["active"]) AND $_SESSION["active"] == true) { 
+if(isset($_SESSION["active"]) AND $_SESSION["active"] == true) {
+    if(array_key_exists($_SESSION["user"], $user) === false) {
+        session_unset();
+        die; 
+    }
     if($user[$_SESSION["user"]]["active"] == 0 && $p != "logout") {
         sendto("index.php?p=logout",0);
-        DIE;
+        die;
     }
 	define("SESSION_ACTIVE", "true");
 	define("SESSION_USER", $_SESSION["user"]);
@@ -44,14 +50,13 @@ if(isset($_SESSION["active"]) AND $_SESSION["active"] == true) {
 	define("SESSION_ACTIVE", "false");
     define("SESSION_LANG", LANG);
 }
-if(SESSION_LANG != LANG) {
+if(SESSION_LANG != LANG && SESSION_LANG != "" && is_file(DIR."/lib/lang/".SESSION_LANG.".php")) {
     include DIR."/lib/lang/".SESSION_LANG.".php";
-} else {
+} else if (is_file(DIR."/lib/lang/".LANG.".php")) {
     include DIR."/lib/lang/".LANG.".php";
+} else {
+    include DIR."/lib/lang/en.php";  
 }
-
-include DIR."/lib/include/functions.inc.php";
-include DIR."/lib/include/server.class.inc.php";
 
 // database
 $filesystem = new filesystem;
