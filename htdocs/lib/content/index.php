@@ -18,7 +18,7 @@ if(SESSION_PERMISSION == "-1") {
             <th><?php echo SLIST_PLAYERS; ?></th>
             <th><?php echo SLIST_PUBLIC; ?></th>
             <th></th>
-        </tr> 
+        </tr>
        <?php
     while (list($key, $val) = each($server->server)) {   
         echo "<tr>";
