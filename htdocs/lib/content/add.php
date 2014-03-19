@@ -5,21 +5,18 @@ include getTempl("header");
     
     if(isset($_POST["submit"]) && $_POST["step"] == "0") {
         if(!checktoken()) {
-            sendto("index.php?p=userlist",0);
+            sendto("index.php?p=add&e=2",0);
             die;
         } else {
             ctoken();
         }
         if($server->searchserver($_POST["port"])) {
-            echo"<br>TRUE!</br>";
-        }
-        if($server->searchserver($_POST["port"])) {
-            sendto("index.php?p=add&error=1", 0); 
+            sendto("index.php?p=add&e=1", 0); 
             die();
         }
         
         ?>
-        <h3>Server erstellen 1/3</h3>
+        <h3><?php echo ADD_SERVER_TITLE; ?> 1/3</h3>
             <form class="form-horizontal" role="form" method="post">
                 <input type="hidden" name="step" value="1" >
                 <input type="hidden" name="name" value="<?php echo $_POST["name"]; ?>" >
@@ -41,7 +38,7 @@ include getTempl("header");
                 ?>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default" name="submit"><?php echo ADD_SERVER_BUTTON; ?></button>
+      <button type="submit" class="btn btn-default" name="submit"><?php echo ADD_SERVER_BUTTON_NEXT; ?></button>
     </div>
   </div>
 </form>
@@ -52,7 +49,7 @@ include getTempl("header");
         
     } elseif( isset($_POST["submit"]) && $_POST["step"] == "1") {
         if(!checktoken()) {
-            sendto("index.php?p=userlist",0);
+            sendto("index.php?p=add&e=2",0);
             die;
         } else {
             ctoken();
@@ -80,7 +77,7 @@ include getTempl("header");
         fclose($Handle); 
         ?>
 
-<h3>Server erstellen 2/3</h3>
+<h3><?php echo ADD_SERVER_TITLE; ?> 2/3</h3>
             <form class="form-horizontal" role="form" method="post">
                 <input type="hidden" name="step" value="2" >
                 <div class="progress progress-striped active">
@@ -90,7 +87,7 @@ include getTempl("header");
 </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default" name="submit">N&auml;chster Schritt</button>
+      <button type="submit" class="btn btn-default" name="submit"><?php echo ADD_SERVER_BUTTON_NEXT; ?></button>
     </div>
   </div>
 </form>
@@ -102,17 +99,17 @@ include getTempl("header");
     } elseif( isset($_POST["submit"]) && $_POST["step"] == "2") {
          
         ?>
-<h3>Server erstellen 3/3</h3>
+<h3><?php echo ADD_SERVER_TITLE; ?> 3/3</h3>
             <form class="form-horizontal" role="form" method="post">
                 <input type="hidden" name="step" value="3" >
                 <div class="progress progress-striped active">
   <div class="progress-bar"  role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-    <span class="sr-only">100% Complete</span>
+    <span class="sr-only">100%</span>
   </div>
 </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default" name="submit">Zur&uuml;ck zur Serverliste</button>
+      <button type="submit" class="btn btn-default" name="submit"><?php echo ADD_SERVER_BUTTON_FINISH; ?></button>
     </div>
   </div>
 </form>
@@ -125,9 +122,20 @@ include getTempl("header");
        sendto("index.php?p=index",0); 
     } else {
         ctoken();
-     
+        
+        if(isset($_GET["e"]) && $_GET["e"] == 1) {
+            ?>
+        <div class="alert alert-danger"><?php echo ADD_SERVER_ERROR_1; ?></div>
+<?php
+            
+        } elseif (isset($_GET["e"]) && $_GET["e"] == 2) {
+            ?>
+        <div class="alert alert-danger"><?php echo ADD_SERVER_ERROR_2; ?></div>
+<?php
+        }
+        
         ?>
-            <h3>Server erstellen</h3>
+            <h3><?php echo ADD_SERVER_TITLE; ?></h3>
             <form class="form-horizontal" role="form" method="post">
                 <input type="hidden" name="step" value="0" >
   <div class="form-group">

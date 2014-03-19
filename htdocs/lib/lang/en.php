@@ -70,11 +70,19 @@ define("SLIST_PUBLIC","Public");
 define("SLIST_ACTIONS","Actions");
 
 // ADD SERVER
-define("ADD_SERVER_NAME_TITLE","Servername");
+define("ADD_SERVER_TITLE","create Server");
+define("ADD_SERVER_NAME_TITLE","ServerName");
 define("ADD_SERVER_NAME_PLACEHOLDER","Name");
 define("ADD_SERVER_PORT_TITLE","Serverport");
 define("ADD_SERVER_PORT_PLACEHOLDER","Port");
-define("ADD_SERVER_CONFIG","Simple Config? ( Only Setup )");
-define("ADD_SERVER_BUTTON","create Server");
+define("ADD_SERVER_CONFIG","Simple Config? ( setup only )");
+define("ADD_SERVER_BUTTON","Create");
+define("ADD_SERVER_BUTTON_NEXT","Next Step");
+define("ADD_SERVER_BUTTON_FINISH","Back to the serverlist");
+define("ADD_SERVER_CONFIG_TITLE","Configuration");
+define("ADD_SERVER_CONFIG_PLACEHOLDER","Please insert your configuration");
+define("ADD_SERVER_ERROR_1","Serverport is allready taken.");
+define("ADD_SERVER_ERROR_2","Your form key is out of date. Please try it again.");
+
 
 ?>

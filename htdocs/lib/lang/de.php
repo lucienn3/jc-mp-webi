@@ -71,13 +71,19 @@ define("SLIST_ACTIONS","Aktionen");
 // define("SLIST_","");
 
 // ADD SERVER
+define("ADD_SERVER_TITLE","Server erstellen");
 define("ADD_SERVER_NAME_TITLE","Server Name");
 define("ADD_SERVER_NAME_PLACEHOLDER","Name");
 define("ADD_SERVER_PORT_TITLE","Server Port");
 define("ADD_SERVER_PORT_PLACEHOLDER","Port");
 define("ADD_SERVER_CONFIG","Einfache Einstellung? ( nur w&auml;hrend Erstellung )");
 define("ADD_SERVER_BUTTON","Server erstellen");
+define("ADD_SERVER_BUTTON_NEXT","N&auuml;chster Schritt");
+define("ADD_SERVER_BUTTON_FINISH","Zur&uuml;ck zur Serverliste");
 define("ADD_SERVER_CONFIG_TITLE","Konfiguration");
 define("ADD_SERVER_CONFIG_PLACEHOLDER","Bitte f&uuml;gen Sie hier ihre Konfiguration ein.");
+define("ADD_SERVER_ERROR_1","Serverport ist schon vergeben und kann nicht vergeben werden.");
+define("ADD_SERVER_ERROR_2","Dein Form-Key lief ab, bitte versuche es erneut.");
+
 
 ?>
