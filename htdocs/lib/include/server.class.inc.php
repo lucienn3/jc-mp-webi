@@ -105,6 +105,15 @@
 		$this->counte = count($this->server);
         
 		}
+        
+        function searchserver($port) {
+            foreach ($this->server as &$value) {
+                if($value["Server"]["BindPort"] == $port) {
+                    return true;   
+                }
+            }
+            return false;
+        }
 		
 		
 	}

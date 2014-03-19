@@ -106,10 +106,10 @@ if(isset($_SESSION["user"]) && !array_key_exists($_SESSION["user"], $user)) {
                 include DIR."/lib/content/add.php";
             } else {
                 send("index");   
-            }
+            } 
         }
     }
-/*
+
 $user = parse_ini_file(DIR."/lib/users.ini", TRUE);
 dumparray($user);
 dumparray($_SESSION);
@@ -126,5 +126,5 @@ $total_time = round(($finish - $start), 4);
 echo 'Page generated in '.$total_time.' seconds.';
 echo "<br/>";
 echo time();
-*/
+
 ?>

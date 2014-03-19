@@ -69,5 +69,12 @@ define("SLIST_PLAYERS","Players");
 define("SLIST_PUBLIC","Public");
 define("SLIST_ACTIONS","Actions");
 
+// ADD SERVER
+define("ADD_SERVER_NAME_TITLE","Servername");
+define("ADD_SERVER_NAME_PLACEHOLDER","Name");
+define("ADD_SERVER_PORT_TITLE","Serverport");
+define("ADD_SERVER_PORT_PLACEHOLDER","Port");
+define("ADD_SERVER_CONFIG","Simple Config? ( Only Setup )");
+define("ADD_SERVER_BUTTON","create Server");
 
 ?>

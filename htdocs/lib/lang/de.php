@@ -70,5 +70,14 @@ define("SLIST_PUBLIC","&Ouml;ffentlich");
 define("SLIST_ACTIONS","Aktionen");
 // define("SLIST_","");
 
+// ADD SERVER
+define("ADD_SERVER_NAME_TITLE","Server Name");
+define("ADD_SERVER_NAME_PLACEHOLDER","Name");
+define("ADD_SERVER_PORT_TITLE","Server Port");
+define("ADD_SERVER_PORT_PLACEHOLDER","Port");
+define("ADD_SERVER_CONFIG","Einfache Einstellung? ( nur w&auml;hrend Erstellung )");
+define("ADD_SERVER_BUTTON","Server erstellen");
+define("ADD_SERVER_CONFIG_TITLE","Konfiguration");
+define("ADD_SERVER_CONFIG_PLACEHOLDER","Bitte f&uuml;gen Sie hier ihre Konfiguration ein.");
 
 ?>
